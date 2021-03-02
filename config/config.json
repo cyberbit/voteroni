@@ -4,8 +4,7 @@
     "password": "secret",
     "database": "voteroni",
     "host": "localhost",
-    "dialect": "postgres",
-    "use_env_variable": "DATABASE_URL"
+    "dialect": "postgres"
   },
   "production": {
     "username": "default",
