@@ -1,6 +1,9 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Subscriptions', {
+    const table = 'Subscriptions'
+
+    // create table
+    await queryInterface.createTable(table, {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -8,6 +11,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       channelId: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
@@ -18,6 +22,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+    })
+
+    await queryInterface.addIndex(table, ['channelId'], {
+      unique: true
     })
   },
   down: async (queryInterface, Sequelize) => {
