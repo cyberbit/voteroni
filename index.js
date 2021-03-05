@@ -24,7 +24,7 @@ client.on('message', message => {
   if (message.author.bot) return
 
   const { channel } = message
-  const trigger = '!voteroni'
+  const trigger = process.env.TRIGGER
 
   // check commands
   if (message.content.startsWith(trigger)) {

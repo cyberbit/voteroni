@@ -1,7 +1,7 @@
+const table = 'Subscriptions'
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const table = 'Subscriptions'
-
     // create table
     await queryInterface.createTable(table, {
       id: {
@@ -24,11 +24,12 @@ module.exports = {
       }
     })
 
+    // add index
     await queryInterface.addIndex(table, ['channelId'], {
       unique: true
     })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Subscriptions')
+    await queryInterface.dropTable(table)
   }
 }

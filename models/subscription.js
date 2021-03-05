@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   Subscription.init({
+    guildId: DataTypes.STRING,
     channelId: DataTypes.STRING
   }, {
     sequelize,
